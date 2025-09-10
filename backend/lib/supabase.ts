@@ -1,11 +1,15 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from '../../shared/supabase-types';
 
-const SUPABASE_URL = process.env.SUPABASE_URL;
-const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;
+const SUPABASE_URL = process.env.SUPABASE_URL || 'https://placeholder.supabase.co';
+const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY || 'placeholder-key';
 
-if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
-  throw new Error('Missing required Supabase environment variables: SUPABASE_URL and SUPABASE_SERVICE_KEY');
+// Check if we have real Supabase credentials
+const hasSupabaseConfig = process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_KEY;
+
+if (!hasSupabaseConfig) {
+  console.warn('⚠️  Supabase environment variables not found. Using placeholder values for development.');
+  console.warn('   To enable Supabase features, set SUPABASE_URL and SUPABASE_SERVICE_KEY in your .env file');
 }
 
 // Server-side Supabase client with service key for admin operations

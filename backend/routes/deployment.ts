@@ -245,7 +245,7 @@ router.get('/deployments/stream', async (req: Request, res: Response) => {
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: {
-    fileSize: 10 * 1024 * 1024, // 10MB limit per file
+    fileSize: 200 * 1024 * 1024, // 200MB limit per file
     files: 100 // Maximum 100 files
   },
   fileFilter: (req, file, cb) => {

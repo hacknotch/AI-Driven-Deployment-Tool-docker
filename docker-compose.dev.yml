@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    container_name: fusion-starter-dev
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-8080}:8080"
+    environment:
+      - NODE_ENV=development
+      - PORT=8080
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - app_logs:/app/logs
+    networks:
+      - app-network
+    command: pnpm run dev
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.app-dev.rule=Host(`${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.app-dev.entrypoints=web"
+      - "traefik.http.services.app-dev.loadbalancer.server.port=8080"
+
+volumes:
+  app_logs:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge

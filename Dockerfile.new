@@ -1,0 +1,27 @@
+# Optimized Node.js application Dockerfile
+FROM node:18-alpine
+
+# Enable pnpm
+RUN corepack enable pnpm
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files first for better caching
+COPY package.json ./
+COPY pnpm-lock.yaml* ./
+
+# Install dependencies (use --no-frozen-lockfile for CI/Docker environments)
+RUN pnpm install --no-frozen-lockfile
+
+# Copy application code
+COPY . .
+
+# Build the application
+RUN pnpm run build
+
+# Expose port
+EXPOSE 3000
+
+# Start the application
+CMD ["pnpm", "start"]

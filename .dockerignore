@@ -1,0 +1,18 @@
+# Safe .dockerignore to prevent build issues
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.git/
+.gitignore
+README.md
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.DS_Store
+Thumbs.db
+*.log
+tmp/
+temp/

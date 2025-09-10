@@ -137,15 +137,15 @@ router.get('/quick', async (req, res) => {
       let output = '';
       let error = '';
 
-      process.stdout.on('data', (data) => {
+      process.stdout.on('data', (data: any) => {
         output += data.toString();
       });
 
-      process.stderr.on('data', (data) => {
+      process.stderr.on('data', (data: any) => {
         error += data.toString();
       });
 
-      process.on('close', (code) => {
+      process.on('close', (code: any) => {
         resolve({
           isInstalled: code === 0,
           version: output.trim(),
@@ -153,7 +153,7 @@ router.get('/quick', async (req, res) => {
         });
       });
 
-      process.on('error', (err) => {
+      process.on('error', (err: any) => {
         resolve({
           isInstalled: false,
           error: err.message
@@ -165,9 +165,9 @@ router.get('/quick', async (req, res) => {
     
     res.json({
       success: true,
-      isInstalled: result.isInstalled,
-      version: result.version,
-      error: result.error,
+      isInstalled: (result as any).isInstalled,
+      version: (result as any).version,
+      error: (result as any).error,
       timestamp: new Date().toISOString()
     });
 
@@ -196,7 +196,7 @@ router.get('/health', async (req, res) => {
       docker: status,
       buildTest,
       overall: status.canBuild && buildTest.success ? 'healthy' : 'unhealthy',
-      recommendations: []
+      recommendations: [] as string[]
     };
 
     // Add recommendations based on status

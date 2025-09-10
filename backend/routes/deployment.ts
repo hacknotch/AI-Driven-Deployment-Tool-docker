@@ -81,7 +81,7 @@ router.post('/deployments', async (req, res) => {
         
         // Create a temporary Dockerfile
         const dockerfilePath = 'temp-deploy-dockerfile';
-        fs.writeFileSync(dockerfilePath, result.dockerfile);
+        fs.writeFileSync(dockerfilePath, result.dockerfile || '');
 
         // Generate image name
         const imageName = result.imageName || `deploy-${Date.now()}`;

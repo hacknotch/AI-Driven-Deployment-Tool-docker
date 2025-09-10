@@ -106,7 +106,7 @@ async function fetchRepoContentsRecursive(
             console.log(`🔍 Fetching important file content: ${item.name}`);
             const fileResponse = await axios.get(item.download_url, { headers });
             fileInfo.content = fileResponse.data;
-            console.log(`✅ Downloaded ${item.name} (${fileInfo.content.length} chars)`);
+            console.log(`✅ Downloaded ${item.name} (${fileInfo.content?.length || 0} chars)`);
           } catch (error) {
             console.log(`⚠️ Failed to fetch content for ${item.name}:`, error);
           }
@@ -685,7 +685,7 @@ function analyzeFileContent(file: GitHubFile, analysis: ProjectAnalysis, files: 
           
           if (jsImports.length > 0) {
             console.log(`📚 Found JS imports in ${name}: ${jsImports.join(', ')}`);
-            analysis.dependencies.push(...jsImports);
+            analysis.dependencies.push(...(jsImports.filter(imp => imp !== null) || []));
           }
         }
       }

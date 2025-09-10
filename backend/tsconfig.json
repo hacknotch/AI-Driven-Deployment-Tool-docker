@@ -19,7 +19,8 @@
       "@/*": ["./*"],
       "@shared/*": ["../shared/*"]
     },
-    "types": ["node"]
+    "types": ["node"],
+    "composite": true
   },
   "include": [
     "**/*.ts"

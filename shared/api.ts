@@ -4,6 +4,8 @@
  * and/or small pure JS functions that can be used on both client and server
  */
 
+import type { Deployment } from './types'
+
 /**
  * Example response type for /api/demo
  */
@@ -26,20 +28,7 @@ export interface DeploymentResponse {
   output?: string;
 }
 
-export interface Deployment {
-  id: number;
-  user_id: string;
-  prompt: string;
-  repo_link: string;
-  deployment_stack: string[];
-  status: 'pending' | 'processing' | 'completed' | 'failed' | 'cancelled';
-  webhook_response?: string;
-  error_message?: string;
-  deployment_url?: string;
-  created_at: string;
-  updated_at: string;
-  completed_at?: string;
-}
+// Deployment interface is now defined in types.ts
 
 export interface DeploymentHistoryResponse {
   success: boolean;

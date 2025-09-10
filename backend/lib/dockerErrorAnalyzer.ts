@@ -85,7 +85,7 @@ Respond with a JSON object containing:
       new StringOutputParser(),
     ]);
 
-    let result: string;
+    let result: string = '';
     try {
       result = await chain.invoke({
         errorOutput,

@@ -374,7 +374,8 @@ RUN echo "Building with .builder files"
       framework: 'React',
       dependencies: ['react', 'node'],
       hasDockerfile: true,
-      projectHealth: 'good',
+      projectHealth: 'good' as const,
+      packageFiles: ['package.json']
     };
 
     // Set up logging

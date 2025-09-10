@@ -86,7 +86,7 @@ export class AutoDeployService {
         this.log(`\n🐳 STEP 2: Docker Image Building`);
         const buildResult = await this.performDockerBuild(analysisResult, config);
         if (!buildResult.success) {
-          throw new Error(`Docker build failed: ${buildResult.error}`);
+          throw new Error(`Docker build failed: ${(buildResult as any).error || 'Unknown error'}`);
         }
         result.steps.dockerBuild = true;
         result.imageName = buildResult.imageName;
@@ -114,7 +114,7 @@ export class AutoDeployService {
           result.deploymentUrl = deployResult.deploymentUrl;
           this.log(`✅ Application deployed successfully: ${deployResult.deploymentUrl}`);
         } else {
-          this.log(`⚠️ Auto deployment failed (non-critical): ${deployResult.error}`);
+          this.log(`⚠️ Auto deployment failed (non-critical): ${(deployResult as any).error || 'Unknown error'}`);
         }
       }
 
@@ -420,7 +420,7 @@ export async function handleGitHubWebhook(payload: any): Promise<AutoDeployResul
   }
 
   const repoUrl = repository.html_url;
-  this.log(`🔄 GitHub webhook triggered for: ${repoUrl}`);
+  console.log(`🔄 GitHub webhook triggered for: ${repoUrl}`);
 
   const config: AutoDeployConfig = {
     repoUrl,

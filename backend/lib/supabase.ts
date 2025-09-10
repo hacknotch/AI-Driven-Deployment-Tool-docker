@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import type { Database } from '../../client/integrations/supabase/types';
+import type { Database } from '../../shared/supabase-types';
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;

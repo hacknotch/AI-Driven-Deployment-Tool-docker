@@ -1,29 +1,19 @@
-# Logs
-logs
-*.log
+# Dependencies
+node_modules/
+*/node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-.config/
+# Build outputs
+dist/
+*/dist/
+build/
+*/build/
+.next/
+out/
 
 # Environment variables
 .env
@@ -32,34 +22,121 @@ dist-ssr
 .env.test.local
 .env.production.local
 
-# Allow .env.example to be committed
-!.env.example
+# IDE and editor files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
 
-# Sensitive files
-set-env.ps1
-setup-env.ps1
-setup-env.sh
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
-# Temporary files
-temp_file.ts
-t
-tatus
-ystem df
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# Temporary folders
+tmp/
+temp/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Database
+*.db
+*.sqlite
 
 # Test files
-test-*.ps1
-test-*.cmd
-test-*.js
-test-*.ts
-test.Dockerfile
-test-app.py
+test-*
+*.test.js
+*.spec.js
 
-# Docker build artifacts
-docker-build/
-docker-build-minimal/
+# Documentation build
+docs/_build/
 
-# PowerPoint files
-*.pptx
+# Backup files
+*.bak
+*.backup
+*.old
 
-# Go modules (if not needed)
-go.mod
+# Lock files (keep package-lock.json but ignore others)
+yarn.lock
+pnpm-lock.yaml
+
+# IDE specific
+*.sublime-project
+*.sublime-workspace
+.vscode/settings.json
+.vscode/launch.json
+
+# OS specific
+.DS_Store
+Thumbs.db

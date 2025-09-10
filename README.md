@@ -1,175 +1,162 @@
-# Spark Space - AI-Powered Deployment Automation
+# 🚀 Spark Space - AI-Driven Deployment Tool
 
-A production-ready full-stack React application with integrated Express server, featuring AI-powered deployment automation, intelligent file generation, and modern DevOps workflows.
-
-## 🚀 Features
-
-- **AI-Powered Deployment**: Intelligent Dockerfile generation using OpenAI GPT-4
-- **GitHub Integration**: Analyze and deploy from GitHub repositories
-- **Intelligent File Analysis**: Automatically detect missing files and generate them
-- **Modern UI**: Built with React 18, TypeScript, and TailwindCSS
-- **Database Integration**: Supabase for user management and deployment tracking
-- **Docker Support**: Full Docker containerization and deployment workflows
-
-## 🛠️ Tech Stack
-
-- **Frontend**: React 18 + React Router 6 + TypeScript + Vite + TailwindCSS 3
-- **Backend**: Express server with TypeScript
-- **Database**: Supabase (PostgreSQL)
-- **AI**: OpenAI GPT-4 integration
-- **UI Components**: Radix UI + Lucide React icons
-- **Package Manager**: PNPM
-
-## 📋 Prerequisites
-
-- Node.js 18+ 
-- PNPM
-- OpenAI API key
-- Supabase account
-- Docker (optional, for containerization features)
-
-## 🚀 Quick Start
-
-### 1. Clone the Repository
-
-```bash
-git clone <your-repo-url>
-cd spark-space
-```
-
-### 2. Install Dependencies
-
-```bash
-pnpm install
-```
-
-### 3. Environment Setup
-
-Copy the example environment file and configure your keys:
-
-```bash
-cp .env.example .env
-```
-
-Edit `.env` with your actual values:
-
-```env
-# OpenAI Configuration
-OPENAI_API_KEY=your_openai_api_key_here
-
-# Supabase Configuration
-SUPABASE_URL=your_supabase_url_here
-SUPABASE_SERVICE_KEY=your_supabase_service_key_here
-VITE_SUPABASE_URL=your_supabase_url_here
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key_here
-
-# GitHub Configuration (Optional - for private repos)
-GITHUB_TOKEN=your_github_token_here
-
-# Docker Hub Configuration (Optional - for pushing images)
-DOCKER_HUB_USERNAME=your_docker_hub_username
-DOCKER_HUB_PASSWORD=your_docker_hub_password_or_token
-
-# Application Configuration
-NODE_ENV=development
-PING_MESSAGE=ping
-PORT=8080
-```
-
-### 4. Database Setup
-
-Run the Supabase migrations:
-
-```bash
-# If using Supabase CLI
-supabase db push
-
-# Or manually run the SQL files in supabase/migrations/ in your Supabase dashboard
-```
-
-### 5. Start Development Server
-
-```bash
-pnpm dev
-```
-
-The application will be available at `http://localhost:8080`
-
-## 🔑 API Keys Setup
-
-### OpenAI API Key
-1. Go to [OpenAI Platform](https://platform.openai.com/api-keys)
-2. Create a new API key
-3. Add it to your `.env` file as `OPENAI_API_KEY`
-
-### Supabase Setup
-1. Create a new project at [Supabase](https://supabase.com)
-2. Get your project URL and API keys from Settings > API
-3. Add them to your `.env` file:
-   - `SUPABASE_URL` - Your project URL
-   - `SUPABASE_SERVICE_KEY` - Service role key (server-side)
-   - `VITE_SUPABASE_URL` - Same as SUPABASE_URL
-   - `VITE_SUPABASE_ANON_KEY` - Anon/public key (client-side)
-
-### GitHub Token (Optional)
-For private repositories or higher rate limits:
-1. Go to GitHub Settings > Developer settings > Personal access tokens
-2. Generate a new token with `repo` scope
-3. Add it to your `.env` file as `GITHUB_TOKEN`
+A full-stack application that automates Docker deployment using AI-powered analysis and intelligent file generation.
 
 ## 📁 Project Structure
 
 ```
-├── client/                   # React SPA frontend
-│   ├── pages/               # Route components
-│   ├── components/          # UI components
-│   ├── integrations/        # External service integrations
-│   └── services/            # API service clients
-├── server/                  # Express API backend
-│   ├── routes/              # API route handlers
-│   ├── lib/                 # Utility libraries
-│   └── migrations/          # Database migrations
-├── shared/                  # Shared types and interfaces
-├── supabase/                # Database configuration
-└── netlify/                 # Deployment configuration
+spark-space/
+├── frontend/                 # React frontend application
+│   ├── components/          # Reusable UI components
+│   ├── pages/              # Route components
+│   ├── hooks/              # Custom React hooks
+│   ├── services/           # API service functions
+│   ├── lib/                # Utility functions
+│   ├── integrations/       # Third-party integrations
+│   └── package.json        # Frontend dependencies
+├── backend/                 # Express.js backend API
+│   ├── routes/             # API route handlers
+│   ├── lib/                # Business logic and services
+│   ├── migrations/         # Database migrations
+│   ├── types/              # TypeScript type definitions
+│   └── package.json        # Backend dependencies
+├── shared/                  # Shared types and utilities
+│   ├── types.ts            # Common TypeScript types
+│   ├── utils.ts            # Shared utility functions
+│   ├── api.ts              # API interface definitions
+│   └── package.json        # Shared dependencies
+├── docs/                    # Documentation
+│   ├── README.md           # Main documentation
+│   ├── API.md              # API documentation
+│   └── DEPLOYMENT.md       # Deployment guide
+├── scripts/                 # Deployment and setup scripts
+│   ├── deploy.ps1          # Windows deployment script
+│   ├── deploy.sh           # Linux/macOS deployment script
+│   └── setup-*.ps1         # Environment setup scripts
+└── package.json            # Root workspace configuration
 ```
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React 18** with TypeScript
+- **Vite** for build tooling
+- **Tailwind CSS** for styling
+- **Radix UI** for components
+- **React Router** for navigation
+- **React Query** for data fetching
+
+### Backend
+- **Express.js** with TypeScript
+- **Supabase** for database
+- **OpenAI API** for AI features
+- **Docker** for containerization
+- **Multer** for file uploads
+
+### Shared
+- **TypeScript** for type safety
+- **Zod** for validation
+- **Common utilities** and types
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+ 
+- npm 8+
+- Docker (optional)
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/hacknotch/AI-Driven-Deployment-Tool-docker.git
+   cd AI-Driven-Deployment-Tool-docker
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm run install:all
+   ```
+
+3. **Set up environment:**
+   ```bash
+   # Copy environment template
+   cp .env.example .env.local
+   
+   # Edit .env.local with your API keys
+   # See docs/ENVIRONMENT_SETUP.md for details
+   ```
+
+4. **Start development servers:**
+   ```bash
+   npm run dev
+   ```
+
+This will start:
+- Frontend on http://localhost:3000
+- Backend on http://localhost:3001
+
+## 📋 Available Scripts
+
+### Root Level
+- `npm run dev` - Start both frontend and backend
+- `npm run build` - Build all packages
+- `npm run typecheck` - Type check all packages
+- `npm run install:all` - Install dependencies for all packages
+- `npm run clean` - Clean all node_modules and dist folders
+
+### Frontend
+- `npm run dev:frontend` - Start frontend dev server
+- `npm run build:frontend` - Build frontend for production
+- `npm run typecheck:frontend` - Type check frontend
+
+### Backend
+- `npm run dev:backend` - Start backend dev server
+- `npm run build:backend` - Build backend for production
+- `npm run start` - Start production backend server
+- `npm run typecheck:backend` - Type check backend
+
+## 🔧 Configuration
+
+### Environment Variables
+See `docs/ENVIRONMENT_SETUP.md` for detailed configuration instructions.
+
+Required variables:
+- `OPENAI_API_KEY` - OpenAI API key for AI features
+- `SUPABASE_URL` - Supabase project URL
+- `SUPABASE_ANON_KEY` - Supabase anonymous key
+
+### TypeScript Configuration
+Each package has its own `tsconfig.json` with appropriate settings:
+- **Frontend**: React-specific configuration with path aliases
+- **Backend**: Node.js configuration with shared type references
+- **Shared**: Library configuration with declaration files
 
 ## 🚀 Deployment
 
-### Netlify (Recommended)
-1. Connect your GitHub repository to Netlify
-2. Set environment variables in Netlify dashboard
-3. Deploy automatically on push
-
-### Manual Build
+### Development
 ```bash
-pnpm build
-pnpm start
+npm run dev
 ```
 
-## 🔧 Development Commands
-
+### Production
 ```bash
-pnpm dev        # Start development server
-pnpm build      # Production build
-pnpm start      # Start production server
-pnpm typecheck  # TypeScript validation
-pnpm test       # Run tests
+npm run build
+npm start
 ```
 
-## 🛡️ Security
-
-- All sensitive keys are stored in environment variables
-- Never commit `.env` files to version control
-- Use service role keys only on the server-side
-- Client-side keys should have minimal permissions
+### Docker
+```bash
+# Build and run with Docker Compose
+docker-compose up --build
+```
 
 ## 📚 Documentation
 
-- [Deployment Setup](DEPLOYMENT_SETUP.md)
-- [Intelligent File Generation](INTELLIGENT_FILE_GENERATION.md)
-- [GitHub Token Setup](GITHUB_TOKEN_SETUP.md)
-- [AI Dockerfile Implementation](AI_DOCKERFILE_IMPLEMENTATION.md)
+- [Environment Setup](docs/ENVIRONMENT_SETUP.md)
+- [API Documentation](docs/API.md)
+- [Deployment Guide](docs/DEPLOYMENT.md)
+- [Contributing Guide](docs/CONTRIBUTING.md)
 
 ## 🤝 Contributing
 
@@ -181,16 +168,11 @@ pnpm test       # Run tests
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
+## 🙏 Acknowledgments
 
-If you encounter any issues:
-1. Check the documentation files
-2. Verify your environment variables are set correctly
-3. Check the console for error messages
-4. Open an issue on GitHub
-
----
-
-**Note**: Make sure to never commit your `.env` file or any files containing sensitive information to version control.
+- OpenAI for AI capabilities
+- Supabase for backend services
+- React and Express.js communities
+- All contributors and users
